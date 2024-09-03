@@ -1,6 +1,4 @@
-[![es](https://img.shields.io/badge/lang-es-green)](README.es.md "Versión en español")
-
-# Music Store
+# Music Store [![es](https://img.shields.io/badge/lang-es-green)](README.es.md "Versión en español")
 
 Music store is an application used to asses the knowledge of OOP concepts in python. The application is a simple music store that allows users to add, list and search for music disc. The application is implemented using classes and objects in python.
 
@@ -32,7 +30,7 @@ The application code is incomplete, the idea is to complete it taking into accou
         In the `__init__` method the class should initialize the attributes `sid`, `title`, `artist`, `sale_price`, `purchase_price` and `quantity` with the values received as parameters.
     - The class should have the attributes `transactions` of type `list[Transaction]` and `song_list` of type `list[str]`. Both attributes should be initialized as an empty list.
     - The class should have an instance method `add_song` that receives a parameter `song` of type `str` and adds the song to the `song_list` attribute.
-    - The class should have an instance method `sell` that receives a parameter `quantity` of type `int` and does the following:
+    - The class should have an instance method `sell` that receives a parameter `copies` of type `int` and does the following:
         - If the parameter `copies` is greater than the `quantity` attribute of the disc, the method should return `False`.
         - Otherwise, the method decreases the `quantity` attribute of the disc by the value of the parameter `copies` and adds a new `Transaction` object to the `transactions` list with the type `Transaction.SELL` and the number of `copies` sold.
         - The method should return `True`.
