@@ -1,7 +1,4 @@
-[![en](https://img.shields.io/badge/lang-en-blue)](README.md "English version")
-
-
-# Tienda de música
+# Tienda de música [![en](https://img.shields.io/badge/lang-en-blue)](README.md "English version")
 
 La tienda de música es una aplicación utilizada para evaluar el conocimiento de los conceptos de POO en Python. La aplicación es una simple tienda de música que permite a los usuarios agregar, listar y buscar discos de música. La aplicación está implementada utilizando clases y objetos en Python.
 
@@ -34,7 +31,7 @@ El código de la aplicación está incompleto, la idea es completarlo teniendo e
         En el método `__init__`, la clase debe inicializar los atributos `sid`, `title`, `artist`, `sale_price`, `purchase_price` y `quantity` con los valores recibidos como parámetros.
     - La clase debe tener los atributos `transactions` de tipo `list[Transaction]` y `song_list` de tipo `list[str]`. Ambos atributos deben inicializarse como listas vacías.
     - La clase debe tener un método de instancia `add_song` que reciba un parámetro `song` de tipo `str` y agregue la canción a la lista `song_list`.
-    - La clase debe tener un método de instancia `sell` que reciba un parámetro `quantity` de tipo `int` y haga lo siguiente:
+    - La clase debe tener un método de instancia `sell` que reciba un parámetro `copies` de tipo `int` y haga lo siguiente:
         - Si el parámetro `copies` es mayor que el atributo `quantity` del disco, el método debe devolver `False`.
         - De lo contrario, el método disminuye el atributo `quantity` del disco en el valor del parámetro `copies` y agrega un nuevo objeto `Transaction` a la lista `transactions` con el tipo `Transaction.SELL` y el número de `copies` vendidas.
         - El método debe devolver `True`.
