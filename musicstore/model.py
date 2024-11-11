@@ -46,9 +46,9 @@ class Disc:
          
     def __str__(self) -> str:
         return(
-            f"SID: {self.sid}/n"
-            f"Title: {self.title}/n" 
-            f"Artist: {self.artist}/n"
+            f"SID: {self.sid}\n"
+            f"Title: {self.title}\n" 
+            f"Artist: {self.artist}\n"
             f"Song List: {', '.join(self.song_list)}"
 )
 
@@ -64,7 +64,7 @@ class MusicStore:
         return self.discs.get(sid)
     
     def search_by_artist(self, artist: str) -> list[Disc]:
-        self.discs.append(artist)
+        return [disc for disc in self.discs.values() if disc.artist == artist]
 
     def sell_disc(self, sid: str, copies: int) -> bool:
         disc = self.search_by_sid(sid)
@@ -81,5 +81,8 @@ class MusicStore:
         disc.supply(copies)
         return True 
     
-    def worst_selling_disc(self) -> Disc | None:
-        pass
+    def worst_selling_disc(self) -> Disc | None:  #no entendí este 
+        if not self.discs:
+            return None
+        return min(self.discs.values(), key=lambda disc: disc.copies_sold(), default=None)
+
