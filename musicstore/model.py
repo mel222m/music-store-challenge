@@ -24,13 +24,13 @@ class Disc:
     def add_song(self, song: str):
         self.song_list.append(song)
 
-    def sell(self, copies: int):
+    def sell(self, copies: int) -> bool:
         if copies > self.quantity:
             return False 
-        else:
-            self.quantity = self.quantity - copies #self.quantity -= copies
-            self.transactions.append(Transaction(Transaction.SELL, copies))
-            return True
+        
+        self.quantity -= copies 
+        self.transactions.append(Transaction(Transaction.SELL, copies))
+        return True
         
     def supply(self, copies: int):
         self.quantity += copies 
@@ -62,4 +62,24 @@ class MusicStore:
 
     def search_by_sid(self, sid: str) -> Disc | None:
         return self.discs.get(sid)
+    
+    def search_by_artist(self, artist: str) -> list[Disc]:
+        self.discs.append(artist)
+
+    def sell_disc(self, sid: str, copies: int) -> bool:
+        disc = self.search_by_sid(sid)
+        if disc is None:
+            return False 
         
+        return disc.sell(copies)
+    
+    def supply_disc(self, sid: str, copies: int) -> bool:
+        disc = self.search_by_sid(sid)
+        if disc is None:
+            return False 
+        
+        disc.supply(copies)
+        return True 
+    
+    def worst_selling_disc(self) -> Disc | None:
+        pass
